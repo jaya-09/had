@@ -81,3 +81,43 @@ AlertDialog.Builder(MainActivity.this);
  android:id="@+id/click"
  />
 </LinearLayout>
+
+
+
+
+web view
+Activity.java
+package com.example.webv;
+import android.os.Bundle;
+import android.webkit.WebView;
+import androidx.appcompat.app.AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+ private WebView webView;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ webView = findViewById(R.id.webvie);
+ // Load a web page in the WebView.
+ webView.loadUrl("https://www.bing.com");
+ }
+}
+
+
+XML
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:fitsSystemWindows="true"
+ tools:context=".MainActivity">
+ <WebView
+ android:id="@+id/webvie"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"/>
+</RelativeLayout>
+
+
+<uses-permission android:name="android.permission.INTERNET"/>
