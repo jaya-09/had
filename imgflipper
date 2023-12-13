@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:orientation="vertical"
+ tools:context=".MainActivity">
+ <ImageView
+ android:layout_width="match_parent"
+ android:layout_height="500dp"
+ android:src="@drawable/first"
+ android:id="@+id/img"
+ ></ImageView>
+ <Button
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Change Image"
+ android:id="@+id/button"
+ android:layout_marginLeft="150dp">
+ </Button>
+</LinearLayout>
+package com.example.imageflipper;
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+public class MainActivity extends AppCompatActivity {
+Button change;
+ImageView img;
+int flag =0;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ change = findViewById(R.id.button);
+ img = findViewById(R.id.img);
+ change.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ if(flag == 0)
+ {
+ img.setImageResource(R.drawable.first);
+ flag = 1;
+ }
+ else {
+ img.setImageResource(R.drawable.second);
+ flag = 0;
+ }
+ }
+ });
+ }
+}
